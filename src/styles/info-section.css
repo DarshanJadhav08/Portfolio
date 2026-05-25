@@ -1,0 +1,203 @@
+.hero-section {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 2.5rem;
+	position: relative;
+	padding: 5rem 1rem 1rem 1rem;
+	text-align: center;
+}
+
+.hero-section .name {
+	font-size: 7rem;
+	color: rgb(31, 195, 255);
+}
+
+.blur {
+	height: 12rem;
+	width: 12rem;
+	background-color: hsl(196, 100%, 56%, 0.7);
+	filter: blur(100px);
+	border-radius: 100px;
+	z-index: -1;
+	position: absolute;
+}
+
+.bottom-bar {
+	border-radius: 13px;
+	color: var(--primaryFg);
+	font-size: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 20px;
+	gap: 10px;
+}
+
+.github-ribbon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 250px;
+	height: 50px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: rotate(45deg) translate(50%, 150%);
+	transform-origin: top right;
+	z-index: 9999;
+	background-color: transparent;
+	color: inherit;
+}
+
+.github-ribbon div {
+	width: 100%;
+	height: 100%;
+	border-radius: 13px;
+	background-color: var(--primaryBg);
+	box-shadow: 0px -3px 15px 0px var(--primaryHi) inset;
+	color: var(--primaryFg);
+	font-size: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	transition: all 0.25s ease;
+}
+
+.github-ribbon span {
+	width: 100px;
+	height: 60px;
+	background-color: var(--primaryHi);
+	border-radius: 100%;
+	filter: blur(20px);
+	position: absolute;
+	bottom: -50%;
+	transition: all 0.25s ease;
+}
+
+.github-ribbon:hover > span {
+	bottom: -40%;
+	filter: blur(18px);
+	scale: 1.2;
+}
+
+.github-ribbon:hover > div {
+	transform: translateY(4px);
+}
+
+.resume-btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	padding: 0.6rem 1.5rem;
+	border-radius: 12px;
+	border: 1px solid rgba(31, 195, 255, 0.35);
+	background: rgba(31, 195, 255, 0.06);
+	color: rgb(31, 195, 255);
+	font-family: 'Fugaz One', sans-serif;
+	font-size: 0.95rem;
+	letter-spacing: 0.05rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.resume-btn::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(31, 195, 255, 0.2), transparent);
+	transition: left 0.5s ease;
+}
+
+.resume-btn:hover::before {
+	left: 100%;
+}
+
+.resume-btn:hover {
+	background: rgba(31, 195, 255, 0.15);
+	box-shadow: 0 0 25px rgba(31, 195, 255, 0.35);
+	transform: translateY(-3px);
+	border-color: rgba(31, 195, 255, 0.6);
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+	.hero-section {
+		font-size: 2rem;
+	}
+
+	.hero-section .name {
+		font-size: 5rem;
+	}
+
+	.floating-btn.first {
+		top: 8%;
+		left: 5%;
+	}
+
+	.floating-btn.sec {
+		bottom: 18%;
+		right: 5%;
+	}
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+	.hero-section {
+		font-size: 1.5rem;
+		padding: 1rem;
+	}
+
+	.hero-section .name {
+		font-size: 3.5rem;
+	}
+
+	.github-ribbon {
+		display: none;
+	}
+
+	.floating-btn.first,
+	.floating-btn.sec {
+		display: none;
+	}
+
+	.bottom-bar {
+		gap: 8px;
+		bottom: 16px;
+	}
+
+	.resume-btn {
+		position: relative;
+		bottom: auto;
+		right: auto;
+		margin-top: 1.5rem;
+		font-size: 0.85rem;
+		padding: 0.5rem 1.2rem;
+	}
+
+	.resume-btn:hover {
+		transform: translateY(-3px);
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.hero-section .name {
+		font-size: 2.5rem;
+	}
+
+	.bottom-bar {
+		gap: 4px;
+	}
+}
